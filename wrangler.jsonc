@@ -5,7 +5,9 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
-	"pages_build_output_dir": "./dist",
+	"assets": {
+		"directory": "./dist"
+	},
 	"vars": {
 		"PNPM_VERSION": "8.15.0"
 	}

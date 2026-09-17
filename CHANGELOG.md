@@ -25,6 +25,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Cloudflare dashboard build config: deploy command corrected to
   `npx wrangler pages deploy dist` (was a bare `wrangler pages deploy dist`,
   which failed since `wrangler` wasn't installed globally in the build image).
+- Confirmed via the Cloudflare API that this project has no Cloudflare Pages
+  project at all (`/pages/projects` is empty) — it's a native Workers project.
+  `wrangler.jsonc`'s `pages_build_output_dir` key made `wrangler` treat it as
+  a Pages project, so `wrangler pages deploy dist` tried to hit a
+  nonexistent Pages API resource and failed with a misleading "Authentication
+  error". Switched to the `assets.directory` config key (the native Workers
+  equivalent) and changed the deploy command to bare `npx wrangler deploy`.
 
 ## [1.0.0] — 2026-06-27
 
