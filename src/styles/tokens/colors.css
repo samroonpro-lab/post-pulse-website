@@ -1,127 +1,135 @@
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 /**
- * Color tokens — Semantic design tokens for light and dark modes
- * Monochrome OKLCH palette (neutral, AstroDeck-style):
- *   near-black foreground on white in light mode, inverted in dark mode.
- * Chroma is 0 for surfaces/primary so the UI stays calm and never goes
- * "off-system"; functional status colors keep just enough chroma to read.
- * These map to Tailwind via @theme block in global.css.
+ * Post Pulse Color Palette — Blood red + monochrome editorial design
+ * Light mode: Paper background (#f5f5f3) with near-black text (#050506)
+ * Dark mode: Ink background (#050506) with white text
+ * Primary accent: Blood red (#932425) used sparingly (once per screen)
+ * Focus ring: Pale steel (#a9b7bb) for keyboard navigation visibility
  */
 
 :root {
-  /* === Core surfaces === */
-  --background: oklch(1 0 0deg);
-  --foreground: oklch(0.145 0 0deg);
-  --card: oklch(1 0 0deg);
-  --card-foreground: oklch(0.145 0 0deg);
-  --popover: oklch(1 0 0deg);
-  --popover-foreground: oklch(0.145 0 0deg);
+  /* === Core surfaces (Paper theme - light mode) === */
+  --background: #f5f5f3;
+  --foreground: #050506;
+  --card: #ffffff;
+  --card-foreground: #050506;
+  --popover: #ffffff;
+  --popover-foreground: #050506;
 
-  /* === Primary — neutral (near-black) === */
-  --primary: oklch(0.205 0 0deg);
-  --primary-foreground: oklch(0.985 0 0deg);
-  --primary-hover: oklch(0.27 0 0deg);
-  --primary-active: oklch(0.32 0 0deg);
-  --primary-muted: oklch(0.97 0 0deg);
+  /* === Primary — Blood red accent === */
+  --primary: #932425;
+  --primary-foreground: #ffffff;
+  --primary-hover: #b4302b;
+  --primary-active: #5e1618;
+  --primary-muted: #f5f5f3;
 
   /* === Secondary === */
-  --secondary: oklch(0.97 0 0deg);
-  --secondary-foreground: oklch(0.205 0 0deg);
-  --secondary-hover: oklch(0.94 0 0deg);
+  --secondary: #e6e6e2;
+  --secondary-foreground: #050506;
+  --secondary-hover: #d4d4ce;
 
-  /* === Accent === */
-  --accent: oklch(0.97 0 0deg);
-  --accent-foreground: oklch(0.205 0 0deg);
-  --accent-hover: oklch(0.94 0 0deg);
+  /* === Accent — same as primary in Post Pulse === */
+  --accent: #932425;
+  --accent-foreground: #ffffff;
+  --accent-hover: #b4302b;
 
   /* === Muted === */
-  --muted: oklch(0.97 0 0deg);
-
-  /* 0.50 keeps secondary text >= WCAG AA (>=4.5:1) on both white and muted bg */
-  --muted-foreground: oklch(0.5 0 0deg);
+  --muted: #f5f5f3;
+  --muted-foreground: #8a8b8f;
 
   /* === Border & Ring === */
-  --border: oklch(0.922 0 0deg);
-  --ring: oklch(0.45 0 0deg);
-  --ring-offset: oklch(1 0 0deg);
+  --border: #cfcfcc;
+  --ring: #a9b7bb;
+  --ring-offset: #ffffff;
 
-  /* === Semantic (functional status — kept chromatic) === */
-  --destructive: oklch(0.577 0.245 27.325deg);
-  --destructive-foreground: oklch(0.985 0 0deg);
-  --success: oklch(0.62 0.16 150deg);
-  --success-foreground: oklch(0.985 0 0deg);
-  --warning: oklch(0.75 0.16 75deg);
-  --warning-foreground: oklch(0.205 0 0deg);
-  --info: oklch(0.45 0 0deg);
-  --info-foreground: oklch(0.985 0 0deg);
+  /* === Semantic (functional status colors) === */
+  --destructive: #932425;
+  --destructive-foreground: #ffffff;
+  --success: #2d7a4a;
+  --success-foreground: #ffffff;
+  --warning: #b8860b;
+  --warning-foreground: #050506;
+  --info: #617c85;
+  --info-foreground: #ffffff;
 
-  /* === Surface invert (for dark sections on light bg) === */
-  --surface-invert: oklch(0.205 0 0deg);
-  --surface-invert-foreground: oklch(0.985 0 0deg);
-  --surface-invert-border: oklch(0.32 0 0deg);
+  /* === Surface invert (dark sections on light bg) === */
+  --surface-invert: #050506;
+  --surface-invert-foreground: #ffffff;
+  --surface-invert-border: #2a2d32;
+
+  /* === Line colors (hairlines and rules) === */
+  --line-hairline: rgba(5, 5, 6, 0.20);
+  --line-light: rgba(5, 5, 6, 0.35);
+  --line-strong: rgba(5, 5, 6, 0.55);
+  --line-accent: #932425;
 }
 
 .dark {
-  /* === Core surfaces === */
-  --background: oklch(0.145 0 0deg);
-  --foreground: oklch(0.985 0 0deg);
-  --card: oklch(0.205 0 0deg);
-  --card-foreground: oklch(0.985 0 0deg);
-  --popover: oklch(0.205 0 0deg);
-  --popover-foreground: oklch(0.985 0 0deg);
+  /* === Core surfaces (Ink theme - dark mode) === */
+  --background: #050506;
+  --foreground: #ffffff;
+  --card: #101114;
+  --card-foreground: #ffffff;
+  --popover: #101114;
+  --popover-foreground: #ffffff;
 
-  /* === Primary — neutral (near-white) === */
-  --primary: oklch(0.985 0 0deg);
-  --primary-foreground: oklch(0.205 0 0deg);
-  --primary-hover: oklch(0.9 0 0deg);
-  --primary-active: oklch(0.82 0 0deg);
-  --primary-muted: oklch(0.269 0 0deg);
+  /* === Primary — Bright red for dark mode === */
+  --primary: #b4302b;
+  --primary-foreground: #050506;
+  --primary-hover: #dd5b50;
+  --primary-active: #5e1618;
+  --primary-muted: #2a2d32;
 
   /* === Secondary === */
-  --secondary: oklch(0.269 0 0deg);
-  --secondary-foreground: oklch(0.985 0 0deg);
-  --secondary-hover: oklch(0.32 0 0deg);
+  --secondary: #1c1e22;
+  --secondary-foreground: #ffffff;
+  --secondary-hover: #2a2d32;
 
-  /* === Accent === */
-  --accent: oklch(0.269 0 0deg);
-  --accent-foreground: oklch(0.985 0 0deg);
-  --accent-hover: oklch(0.32 0 0deg);
+  /* === Accent — bright red for dark mode === */
+  --accent: #b4302b;
+  --accent-foreground: #050506;
+  --accent-hover: #dd5b50;
 
   /* === Muted === */
-  --muted: oklch(0.269 0 0deg);
-
-  /* 0.74 keeps secondary text >= WCAG AA (>=4.5:1) on dark muted bg */
-  --muted-foreground: oklch(0.74 0 0deg);
+  --muted: #2a2d32;
+  --muted-foreground: #a3a4a8;
 
   /* === Border & Ring === */
-  --border: oklch(0.32 0 0deg);
-  --ring: oklch(0.6 0 0deg);
-  --ring-offset: oklch(0.145 0 0deg);
+  --border: #2a2d32;
+  --ring: #a9b7bb;
+  --ring-offset: #050506;
 
-  /* === Semantic (functional status — kept chromatic) === */
-  --destructive: oklch(0.704 0.191 22.216deg);
-  --destructive-foreground: oklch(0.985 0 0deg);
-  --success: oklch(0.7 0.15 150deg);
-  --success-foreground: oklch(0.145 0 0deg);
-  --warning: oklch(0.8 0.15 80deg);
-  --warning-foreground: oklch(0.145 0 0deg);
-  --info: oklch(0.708 0 0deg);
-  --info-foreground: oklch(0.145 0 0deg);
+  /* === Semantic (functional status colors) === */
+  --destructive: #dd5b50;
+  --destructive-foreground: #050506;
+  --success: #4aad6f;
+  --success-foreground: #050506;
+  --warning: #e6b800;
+  --warning-foreground: #050506;
+  --info: #a9b7bb;
+  --info-foreground: #050506;
 
-  /* === Surface invert (for light sections on dark bg) === */
-  --surface-invert: oklch(0.985 0 0deg);
-  --surface-invert-foreground: oklch(0.205 0 0deg);
-  --surface-invert-border: oklch(0.85 0 0deg);
+  /* === Surface invert (light sections on dark bg) === */
+  --surface-invert: #ffffff;
+  --surface-invert-foreground: #050506;
+  --surface-invert-border: #cfcfcc;
+
+  /* === Line colors (hairlines and rules) === */
+  --line-hairline: rgba(255, 255, 255, 0.15);
+  --line-light: rgba(255, 255, 255, 0.30);
+  --line-strong: rgba(255, 255, 255, 0.50);
+  --line-accent: #dd5b50;
 }
 
-/* === Radius === */
+/* === Radius — All 0px (Post Pulse: sharp corners everywhere) === */
 :root {
-  --radius-xs: 0.125rem;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-full: 9999px;
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-full: 0px;
 }
 
 /**
@@ -142,8 +150,15 @@
   --color-border: var(--border);
 }
 
-/* === Shadow scale (subtle, dark-mode aware) === */
+/* === Shadows (Post Pulse: minimal, editorial aesthetic) === */
 :root {
+  /* Lift shadow: used for modals, sticky elements over photography */
+  --shadow-lift: 0 18px 48px rgb(0 0 0 / 55%);
+
+  /* Print shadow: hairline depth for subtle separation */
+  --shadow-print: 0 1px 0 rgb(5 5 6 / 18%);
+
+  /* Legacy soft shadows — not used in Post Pulse, kept for compatibility */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
   --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 8%), 0 2px 4px -2px rgb(0 0 0 / 5%);
   --shadow-lg:
@@ -151,6 +166,10 @@
 }
 
 .dark {
+  --shadow-lift: 0 18px 48px rgb(0 0 0 / 55%);
+  --shadow-print: 0 1px 0 rgb(5 5 6 / 18%);
+
+  /* Legacy soft shadows — not used in Post Pulse, kept for compatibility */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 40%);
   --shadow-md:
     0 4px 12px -2px rgb(0 0 0 / 50%), 0 2px 4px -2px rgb(0 0 0 / 40%);
