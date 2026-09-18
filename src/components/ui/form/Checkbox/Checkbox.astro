@@ -1,3 +1,4 @@
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 ---
 export interface Props {
   id: string;
@@ -10,8 +11,8 @@ const { id, name, label, checked = false } = Astro.props as Props;
 ---
 
 <label class="ui-checkbox">
-  <input id={id} name={name} type="checkbox" checked={checked} />
-  <span>{label}</span>
+  <input id={id} name={name} type="checkbox" checked={checked} class="ui-checkbox__input" />
+  <span class="ui-checkbox__label">{label}</span>
 </label>
 
 <style>
@@ -19,6 +20,27 @@ const { id, name, label, checked = false } = Astro.props as Props;
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    color: var(--color-text-primary);
+    color: var(--foreground);
+    cursor: pointer;
+  }
+  .ui-checkbox__input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--border);
+    background: var(--background);
+    cursor: pointer;
+    border-radius: 0px;
+    accent-color: var(--primary);
+  }
+  .ui-checkbox__input:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  .ui-checkbox__input:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+  }
+  .ui-checkbox__label {
+    cursor: pointer;
   }
 </style>
