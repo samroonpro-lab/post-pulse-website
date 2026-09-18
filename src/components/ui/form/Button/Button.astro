@@ -1,25 +1,27 @@
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 ---
 import { cn } from "../../../../lib/cn";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "destructive" | "link";
 type ButtonSize = "sm" | "md" | "lg";
 
+/* Post Pulse button variants — no hover scale, color shift instead */
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-primary-foreground hover:opacity-90 shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]",
+    "bg-primary text-primary-foreground hover:bg-primary-hover transition-all duration-120 active:translate-y-[1px]",
   secondary:
-    "bg-secondary text-secondary-foreground hover:bg-muted border border-border shadow-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]",
+    "bg-secondary text-secondary-foreground hover:bg-foreground hover:text-background border border-border transition-all duration-120 active:translate-y-[1px]",
   ghost:
-    "bg-transparent text-foreground hover:bg-muted transition-colors duration-200",
+    "bg-transparent text-foreground hover:bg-muted hover:text-primary transition-all duration-120 active:translate-y-[1px]",
   destructive:
-    "bg-destructive text-destructive-foreground hover:opacity-90 shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]",
-  link: "bg-transparent p-0 text-primary underline-offset-4 hover:underline",
+    "bg-destructive text-destructive-foreground hover:bg-red-700 transition-all duration-120 active:translate-y-[1px]",
+  link: "bg-transparent p-0 text-primary underline-offset-4 hover:underline hover:text-primary-hover transition-all duration-120",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "h-9 px-4 text-xs font-semibold tracking-wide uppercase",
-  md: "h-11 px-6 text-sm font-semibold",
-  lg: "h-13 px-8 text-base font-semibold",
+  sm: "min-h-11 px-4 text-xs font-semibold tracking-wide uppercase",
+  md: "min-h-11 px-6 text-sm font-semibold",
+  lg: "min-h-11 px-8 text-base font-semibold",
 };
 
 export interface Props {
@@ -40,7 +42,7 @@ const {
   class: className,
 } = Astro.props as Props;
 const classes = cn(
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand-primary)] disabled:opacity-50 disabled:pointer-events-none",
+  "inline-flex items-center justify-center gap-2 border-0 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--ring)] disabled:opacity-[0.38] disabled:pointer-events-none",
   variant ? variantClasses[variant] : variantClasses.primary,
   size ? sizeClasses[size] : sizeClasses.md,
   className,
