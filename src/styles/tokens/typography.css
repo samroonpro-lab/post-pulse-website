@@ -1,23 +1,39 @@
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 /**
- * Typography tokens — Font families, fluid type scale, heading weights
- * Fontsource variable fonts: Manrope (body), Outfit (headings), JetBrains Mono (code)
+ * Post Pulse Typography — Oswald (display), Jost (body), JetBrains Mono (code)
+ * Condensed, editorial aesthetic with tight display leading and generous body line-height
  */
 
 :root {
-  /* === Font families === */
+  /* === Font families — Post Pulse === */
   --font-sans:
-    "Manrope Variable", "Manrope Fallback", system-ui, -apple-system,
+    "Jost Variable", "Jost Fallback", system-ui, -apple-system,
     blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
   --font-heading:
-    "Outfit Variable", "Outfit Fallback", system-ui, -apple-system,
+    "Oswald Variable", "Oswald Fallback", system-ui, -apple-system,
     blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
   --font-mono:
     "JetBrains Mono Variable", "JetBrains Mono Fallback", ui-monospace,
     sfmono-regular, "SF Mono", menlo, consolas, "Liberation Mono", monospace;
 
-  /* === Fluid type scale (clamp: min, preferred, max) === */
+  /* === Post Pulse Display Scale (Oswald) === */
+  /* Condensed, editorial headlines with tight leading */
+  --text-display-1: clamp(120px, 15vw, 148px);
+  --text-display-2: clamp(90px, 12vw, 104px);
+  --text-display-3: clamp(60px, 8vw, 72px);
+  --text-display-4: clamp(45px, 6vw, 52px);
+  --text-display-5: clamp(32px, 4vw, 38px);
+  --text-display-6: clamp(24px, 3vw, 28px);
 
-  /* Base: 1rem = 16px at default viewport */
+  /* === Post Pulse Body & UI Scale (Jost) === */
+  /* Generous line-height for readability */
+  --text-lead: clamp(18px, 2.5vw, 21px);
+  --text-body: clamp(16px, 2vw, 17px);
+  --text-body-sm: clamp(14px, 1.8vw, 15px);
+  --text-caption: clamp(12px, 1.5vw, 13px);
+  --text-micro: 11px;
+
+  /* === Legacy type scale (kept for compatibility) === */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); /* 12-14px */
   --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem); /* 14-16px  */
   --text-base: clamp(1rem, 0.925rem + 0.375vw, 1.125rem); /* 16-18px  */
@@ -36,14 +52,23 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
 
-  /* === Line heights === */
+  /* === Line heights — Post Pulse === */
+  --leading-display-tight: 0.88;
+  --leading-display-mid: 0.96;
+  --leading-body: 1.6;
+
+  /* === Legacy line heights (kept for compatibility) === */
   --leading-tight: 1.1;
   --leading-snug: 1.375;
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
   --leading-loose: 2;
 
-  /* === Letter spacing === */
+  /* === Letter spacing — Post Pulse === */
+  --tracking-display: -0.005em;
+  --tracking-body: 0.005em;
+
+  /* === Legacy letter spacing (kept for compatibility) === */
   --tracking-tighter: -0.05em;
   --tracking-tight: -0.025em;
   --tracking-normal: 0;
@@ -52,14 +77,17 @@
   --tracking-widest: 0.1em;
 }
 
-/* === Fluid heading scale === */
+/* === Post Pulse Heading Scale === */
 :root {
-  --heading-h1: var(--text-5xl);
-  --heading-h2: var(--text-4xl);
-  --heading-h3: var(--text-3xl);
-  --heading-h4: var(--text-2xl);
-  --heading-h5: var(--text-xl);
-  --heading-h6: var(--text-lg);
+  /* Display headings (Oswald) */
+  --heading-h1: var(--text-display-3);  /* Display 3: 72px */
+  --heading-h2: var(--text-display-4);  /* Display 4: 52px */
+  --heading-h3: var(--text-display-5);  /* Display 5: 38px */
+
+  /* UI headings (Jost) */
+  --heading-h4: var(--text-display-6);  /* Display 6: 28px */
+  --heading-h5: var(--text-lead);       /* Lead: 21px */
+  --heading-h6: var(--text-body);       /* Body: 17px */
 }
 
 /* === Code font size (slightly smaller for inline code) === */
