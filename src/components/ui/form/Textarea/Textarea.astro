@@ -1,4 +1,5 @@
 ---
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 import { cn } from "../../../../lib/cn";
 
 export interface Props {
@@ -61,27 +62,52 @@ const {
   }
   .ui-field__label {
     font-weight: 600;
+    font-size: 0.875rem;
   }
   .ui-textarea {
     width: 100%;
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    background: var(--color-bg-primary);
-    padding: 0.75rem 1rem;
-    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--foreground);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-hairline);
+    border-radius: 0px;
+    padding: 12px 0;
     resize: vertical;
+    transition: border-color 220ms cubic-bezier(0.2, 0, 0.1, 1);
+    min-height: 120px;
+  }
+  .ui-textarea::placeholder {
+    color: var(--muted-foreground);
+    opacity: 0.6;
+  }
+  .ui-textarea:hover {
+    border-bottom-color: var(--line-light);
+  }
+  .ui-textarea:focus {
+    outline: none;
+    border-bottom: 2px solid var(--line-strong);
+    padding: 12px 0;
+  }
+  .ui-textarea:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
   }
   .ui-textarea--error {
-    border-color: #dc2626;
+    border-bottom: 2px solid var(--destructive);
+  }
+  .ui-textarea--error:focus {
+    border-bottom-color: var(--destructive);
   }
   .ui-field__help,
   .ui-field__error {
     font-size: 0.875rem;
   }
   .ui-field__help {
-    color: var(--color-text-secondary);
+    color: var(--muted-foreground);
   }
   .ui-field__error {
-    color: #dc2626;
+    color: var(--destructive);
   }
 </style>
