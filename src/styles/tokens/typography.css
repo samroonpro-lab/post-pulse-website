@@ -1,4 +1,5 @@
 /* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
+
 /**
  * Post Pulse Typography — Oswald (display), Jost (body), JetBrains Mono (code)
  * Condensed, editorial aesthetic with tight display leading and generous body line-height
@@ -17,6 +18,7 @@
     sfmono-regular, "SF Mono", menlo, consolas, "Liberation Mono", monospace;
 
   /* === Post Pulse Display Scale (Oswald) === */
+
   /* Condensed, editorial headlines with tight leading */
   --text-display-1: clamp(120px, 15vw, 148px);
   --text-display-2: clamp(90px, 12vw, 104px);
@@ -26,6 +28,7 @@
   --text-display-6: clamp(24px, 3vw, 28px);
 
   /* === Post Pulse Body & UI Scale (Jost) === */
+
   /* Generous line-height for readability */
   --text-lead: clamp(18px, 2.5vw, 21px);
   --text-body: clamp(16px, 2vw, 17px);

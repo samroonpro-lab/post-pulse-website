@@ -1,4 +1,5 @@
 /* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
+
 /**
  * Post Pulse Color Palette — Blood red + monochrome editorial design
  * Light mode: Paper background (#f5f5f3) with near-black text (#050506)
@@ -11,14 +12,14 @@
   /* === Core surfaces (Paper theme - light mode) === */
   --background: #f5f5f3;
   --foreground: #050506;
-  --card: #ffffff;
+  --card: #fff;
   --card-foreground: #050506;
-  --popover: #ffffff;
+  --popover: #fff;
   --popover-foreground: #050506;
 
   /* === Primary — Blood red accent === */
   --primary: #932425;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #fff;
   --primary-hover: #b4302b;
   --primary-active: #5e1618;
   --primary-muted: #f5f5f3;
@@ -30,7 +31,7 @@
 
   /* === Accent — same as primary in Post Pulse === */
   --accent: #932425;
-  --accent-foreground: #ffffff;
+  --accent-foreground: #fff;
   --accent-hover: #b4302b;
 
   /* === Muted === */
@@ -40,38 +41,38 @@
   /* === Border & Ring === */
   --border: #cfcfcc;
   --ring: #a9b7bb;
-  --ring-offset: #ffffff;
+  --ring-offset: #fff;
 
   /* === Semantic (functional status colors) === */
   --destructive: #932425;
-  --destructive-foreground: #ffffff;
+  --destructive-foreground: #fff;
   --success: #2d7a4a;
-  --success-foreground: #ffffff;
+  --success-foreground: #fff;
   --warning: #b8860b;
   --warning-foreground: #050506;
   --info: #617c85;
-  --info-foreground: #ffffff;
+  --info-foreground: #fff;
 
   /* === Surface invert (dark sections on light bg) === */
   --surface-invert: #050506;
-  --surface-invert-foreground: #ffffff;
+  --surface-invert-foreground: #fff;
   --surface-invert-border: #2a2d32;
 
   /* === Line colors (hairlines and rules) === */
-  --line-hairline: rgba(5, 5, 6, 0.20);
-  --line-light: rgba(5, 5, 6, 0.35);
-  --line-strong: rgba(5, 5, 6, 0.55);
+  --line-hairline: rgb(5 5 6 / 20%);
+  --line-light: rgb(5 5 6 / 35%);
+  --line-strong: rgb(5 5 6 / 55%);
   --line-accent: #932425;
 }
 
 .dark {
   /* === Core surfaces (Ink theme - dark mode) === */
   --background: #050506;
-  --foreground: #ffffff;
+  --foreground: #fff;
   --card: #101114;
-  --card-foreground: #ffffff;
+  --card-foreground: #fff;
   --popover: #101114;
-  --popover-foreground: #ffffff;
+  --popover-foreground: #fff;
 
   /* === Primary — Bright red for dark mode === */
   --primary: #b4302b;
@@ -82,7 +83,7 @@
 
   /* === Secondary === */
   --secondary: #1c1e22;
-  --secondary-foreground: #ffffff;
+  --secondary-foreground: #fff;
   --secondary-hover: #2a2d32;
 
   /* === Accent — bright red for dark mode === */
@@ -110,14 +111,14 @@
   --info-foreground: #050506;
 
   /* === Surface invert (light sections on dark bg) === */
-  --surface-invert: #ffffff;
+  --surface-invert: #fff;
   --surface-invert-foreground: #050506;
   --surface-invert-border: #cfcfcc;
 
   /* === Line colors (hairlines and rules) === */
-  --line-hairline: rgba(255, 255, 255, 0.15);
-  --line-light: rgba(255, 255, 255, 0.30);
-  --line-strong: rgba(255, 255, 255, 0.50);
+  --line-hairline: rgb(255 255 255 / 15%);
+  --line-light: rgb(255 255 255 / 30%);
+  --line-strong: rgb(255 255 255 / 50%);
   --line-accent: #dd5b50;
 }
 
