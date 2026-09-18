@@ -1,4 +1,5 @@
 ---
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 import { cn } from "../../../../lib/cn";
 
 type BadgeVariant = "default" | "outline" | "secondary" | "destructive";
@@ -6,13 +7,13 @@ type BadgeSize = "sm" | "md";
 
 const variantClasses: Record<BadgeVariant, string> = {
   default:
-    "bg-[color:var(--color-bg-tertiary)] text-[color:var(--color-text-primary)]",
+    "bg-muted text-foreground border border-border",
   outline:
-    "border border-[color:var(--color-border)] text-[color:var(--color-text-primary)]",
+    "border border-border text-foreground",
   secondary:
-    "bg-[color:var(--color-brand-secondary)]/10 text-[color:var(--color-brand-primary)]",
+    "bg-accent/10 text-primary",
   destructive:
-    "bg-[color:var(--destructive)] text-[color:var(--destructive-foreground)]",
+    "bg-destructive text-destructive-foreground",
 };
 
 const sizeClasses: Record<BadgeSize, string> = {
@@ -31,11 +32,12 @@ const { variant, size, class: className } = Astro.props as Props;
 
 <span
   class={cn(
-    "inline-flex items-center rounded-full font-medium",
+    "inline-flex items-center font-medium border-radius-0",
     variant ? variantClasses[variant] : variantClasses.default,
     size ? sizeClasses[size] : sizeClasses.md,
     className,
   )}
+  style="border-radius: 0px;"
 >
   <slot />
 </span>
