@@ -1,5 +1,6 @@
 ---
 import { Card, Grid, Icon } from "./ui/index";
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 
 export interface Feature {
   title: string;
@@ -61,10 +62,10 @@ const iconMap: Record<string, string> = {
     width: 2.75rem;
     height: 2.75rem;
     margin-bottom: var(--space-md);
-    border-radius: var(--radius-full);
-    background: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-primary);
+    border-radius: 0px;
+    background: var(--muted);
+    border: 1px solid var(--border);
+    color: var(--primary);
   }
 
   .feature-card__icon :global(svg) {
@@ -76,11 +77,12 @@ const iconMap: Record<string, string> = {
     font-size: 1.0625rem;
     font-weight: 600;
     margin: 0 0 var(--space-sm);
+    color: var(--foreground);
   }
 
   .feature-card__desc {
     font-size: 0.9375rem;
-    color: var(--color-text-secondary);
+    color: var(--muted-foreground);
     margin: 0;
     line-height: 1.6;
   }
