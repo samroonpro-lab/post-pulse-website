@@ -1,4 +1,5 @@
 ---
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 export interface Props {
   src?: string;
   alt?: string;
@@ -29,13 +30,14 @@ const sizes = { sm: 28, md: 40, lg: 56 } as const;
   .ui-avatar {
     width: var(--avatar-size);
     height: var(--avatar-size);
-    border-radius: 9999px;
+    border-radius: 0px;
     overflow: hidden;
     display: inline-grid;
     place-items: center;
-    background: var(--color-bg-tertiary);
-    color: var(--color-text-primary);
+    background: var(--primary);
+    color: var(--primary-foreground);
     font-weight: 700;
+    border: 1px solid var(--border);
   }
   .ui-avatar--sm {
     --avatar-size: 28px;
