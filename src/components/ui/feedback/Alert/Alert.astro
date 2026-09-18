@@ -1,14 +1,14 @@
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 ---
-import { Icon } from "astro-icon/components";
 import { cn } from "../../../../lib/cn";
 
-type AlertVariant = "info" | "success" | "warning" | "error";
+type AlertVariant = "info" | "success" | "warning" | "destructive";
 
 const variantClasses: Record<AlertVariant, string> = {
   info: "ui-alert--info",
   success: "ui-alert--success",
   warning: "ui-alert--warning",
-  error: "ui-alert--error",
+  destructive: "ui-alert--destructive",
 };
 
 export interface Props {
@@ -29,7 +29,6 @@ const { variant, dismissible = false, class: className } = Astro.props as Props;
   role="alert"
 >
   <div class="ui-alert__content">
-    <Icon name="lucide:info" />
     <slot />
   </div>
   {
@@ -46,30 +45,45 @@ const { variant, dismissible = false, class: className } = Astro.props as Props;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: var(--space-md);
-    padding: var(--space-md);
-    border-radius: 0.75rem;
-    border: 1px solid var(--color-border);
+    gap: var(--spacing-4);
+    padding: 16px 20px;
+    border-radius: 0px;
+    border: none;
+    border-left: 2px solid;
   }
   .ui-alert__content {
     display: inline-flex;
     align-items: flex-start;
-    gap: 0.6rem;
+    gap: 0;
+    width: 100%;
   }
   .ui-alert--info {
-    background: var(--muted);
+    border-color: var(--info);
+    background: rgba(97, 124, 133, 0.08);
     color: var(--foreground);
   }
   .ui-alert--success {
-    background: #ecfdf5;
-    color: #047857;
+    border-color: var(--success);
+    background: rgba(45, 122, 74, 0.08);
+    color: var(--foreground);
   }
   .ui-alert--warning {
-    background: #fffbeb;
-    color: #b45309;
+    border-color: var(--warning);
+    background: rgba(184, 134, 11, 0.08);
+    color: var(--foreground);
   }
-  .ui-alert--error {
-    background: #fef2f2;
-    color: #b91c1c;
+  .ui-alert--destructive {
+    border-color: var(--destructive);
+    background: rgba(147, 36, 37, 0.08);
+    color: var(--foreground);
+  }
+  .ui-alert__close {
+    background: transparent;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0;
+    margin-left: auto;
   }
 </style>
