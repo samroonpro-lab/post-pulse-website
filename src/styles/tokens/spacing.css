@@ -1,22 +1,29 @@
+/* MODIFIED: 2026-09-18 Post Pulse Design System Implementation */
 /**
- * Spacing & layout tokens — Design system grid, container widths, section padding, gap scale
- * Typography centered and measured in relative units where appropriate
+ * Post Pulse Spacing & layout tokens — 4px base grid system
+ * All spacing uses multiples of 4px for strict alignment
  */
 
 :root {
-  /* === Spacing scale (rem units, based on 16px root) === */
+  /* === Spacing scale (4px base grid) === */
   --spacing-0: 0;
-  --spacing-1: 0.25rem; /* 4px  */
-  --spacing-2: 0.5rem; /* 8px  */
-  --spacing-3: 0.75rem; /* 12px */
-  --spacing-4: 1rem; /* 16px */
-  --spacing-5: 1.25rem; /* 20px */
-  --spacing-6: 1.5rem; /* 24px */
-  --spacing-7: 2rem; /* 32px */
-  --spacing-8: 3rem; /* 48px */
-  --spacing-9: 5rem; /* 80px */
-  --spacing-10: 8rem; /* 128px */
-  --spacing-11: 12rem; /* 192px */
+  --spacing-1: 4px;      /* 4px  */
+  --spacing-2: 8px;      /* 8px  */
+  --spacing-3: 12px;     /* 12px */
+  --spacing-4: 16px;     /* 16px */
+  --spacing-5: 24px;     /* 24px */
+  --spacing-6: 32px;     /* 32px */
+  --spacing-7: 48px;     /* 48px */
+  --spacing-8: 64px;     /* 64px */
+  --spacing-9: 96px;     /* 96px */
+  --spacing-10: 128px;   /* 128px */
+  --spacing-11: 160px;   /* 160px */
+  --spacing-12: 224px;   /* 224px */
+
+  /* === Legacy rem-based spacing (kept for compatibility) === */
+  --spacing-5-rem: 1.25rem; /* 20px */
+  --spacing-7-rem: 2rem; /* 32px */
+  --spacing-9-rem: 5rem; /* 80px */
 
   /* === Container max-widths === */
   --container-narrow: 38rem; /* ~608px */
@@ -26,10 +33,10 @@
   --container-max: 80rem; /* ~1280px (design max width) */
 
   /* === Section padding === */
-  --section-py: var(--spacing-16); /* vertical sections */
-  --section-px: var(--spacing-8); /* horizontal sections */
+  --section-py: clamp(2rem, 5vh, 6rem); /* vertical sections (responsive) */
+  --section-px: clamp(1rem, 2.5vw, 4rem); /* horizontal sections (responsive) */
   --section-py-sm: var(--spacing-8);
-  --section-py-lg: var(--spacing-20);
+  --section-py-lg: var(--spacing-12);
 
   /* === Grid gaps === */
   --grid-gap-xs: var(--spacing-2);
